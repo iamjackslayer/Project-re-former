@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<!-- <form action="/users" method="POST" accept-charset="UTF-8" >
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<label for="username">Username:</label>
+		<input type="text" name="user[username]">
+		<label for="email">Email:</label>
+		<input type="text" name="user[email]">
+		<label for="password">Password:</label>
+		<input type="text" name="user[password]">
+		<input type="submit" name="Submit">
+	</form> -->
+	<% #form_tag('/users', method: :post) do %>
+
+		<% #label_tag('Username:','username') %>
+		<% #text_field_tag('username') %>
+
+		<% #label_tag('Password:','password') %>
+		<%#text_field_tag('password') %>
+
+		<% #submit_tag('submit') %>
+
+	<% #end %>
+	<%= form_for @user, method: "get" do |u| %>
+		<%= u.label "username", "username:" %>
+		<%= u.text_field :username , value: "Jack Wong"%>
+		<%= u.label :email, "email:" %>
+		<%= u.text_field :email , value: "jackwong3101@yahoo.com"%>
+		<%= u.label :password, "password:" %>
+		<%= u.text_field :password %>
+		<%= u.submit "Submit!" %>
+	<% end %>
+	<% if defined? errors %>
+	<h1><%= errors %></h1>
+	<% end %>
+
+</body>
+</html>
